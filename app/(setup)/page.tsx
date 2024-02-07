@@ -1,6 +1,7 @@
 import { initialProfile } from "@/lib/initial-profile";
 import prisma from "@/lib/db";
 import { redirect } from "next/navigation";
+import InitialModel from "@/components/modals/initialModel";
 
 const SetUpPage = async () => {
   const profile = await initialProfile();
@@ -18,7 +19,11 @@ const SetUpPage = async () => {
     return redirect(`/server/${server.id}`);
   }
 
-  return <div>Create a server</div>;
+  return (
+    <div>
+      <InitialModel />
+    </div>
+  );
 };
 
 export default SetUpPage;
