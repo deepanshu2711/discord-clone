@@ -28,3 +28,24 @@ export async function PATCH(req:Request,{params}:{params:{serverId:string}}) {
     }
     
 }
+
+export async function DELETE(req:Request,{params}:{params:{serverId:string}}) {
+    try {
+        const profile = await currentprofile();
+        if(!profile) return new NextResponse("unauthorized" ,{status:401})
+        if(!params.serverId) return new NextResponse("ServerId missing" ,{status:400})
+        
+        const server = await prisma.server.delete({
+            where:{
+                id:params.serverId,
+                profileid:profile.id
+            }
+        })
+
+        return NextResponse.json(server)
+    } catch (error) {
+        console.log(error)
+        return new NextResponse("Internal error" ,{status:500})
+    }
+    
+}

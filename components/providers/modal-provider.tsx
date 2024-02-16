@@ -7,6 +7,8 @@ import InviteModal from "../modals/inviteModal";
 import EditServerModal from "../modals/edit-server-modal";
 import MembersModal from "../modals/membersModal";
 import CreateChannelModal from "../modals/create-channel-model";
+import LeaveServerModal from "../modals/leave-server-modal";
+import DeleteServerModal from "../modals/delete-server-modal";
 
 export const ModalProvider = () => {
   const [isMounted, setisMounted] = useState(false);
@@ -24,6 +26,8 @@ export const ModalProvider = () => {
       <EditServerModal />
       <MembersModal />
       <CreateChannelModal />
+      <LeaveServerModal />
+      <DeleteServerModal />
     </>
   );
 };
