@@ -37,7 +37,7 @@ const InviteCodePage = async ({ params }: InviteCodePageprops) => {
 
   if (server) return redirect(`/servers/${server.id}`);
 
-  return <div>Hello Invite</div>;
+  return null;
 };
 
 export default InviteCodePage;
